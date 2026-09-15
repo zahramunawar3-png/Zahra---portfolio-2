@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zahra Munawar — Digital Marketing & Automation Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FAF6F0;
+    --ink:#18120D;
+    --orange:#C1541C;
+    --orange-soft:#E8A87C;
+    --stone:#8C8175;
+    --hairline:#E4DCD1;
+    --card:#FFFFFF;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3,.serif{
+    font-family:'Fraunces', Georgia, 'Times New Roman', serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+
+  a{color:inherit;}
+
+  .wrap{
+    max-width:960px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky;
+    top:0;
+    background:rgba(250,246,240,0.92);
+    backdrop-filter:blur(6px);
+    z-index:50;
+    border-bottom:1px solid var(--hairline);
+  }
+  nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 32px;
+    max-width:960px;
+    margin:0 auto;
+  }
+  .nav-name{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.05rem;
+  }
+  .nav-links{
+    display:flex;
+    gap:28px;
+    font-size:0.92rem;
+    color:var(--stone);
+  }
+  .nav-links a{text-decoration:none;transition:color .2s;margin-left:28px;}
+  .nav-links a:first-child{margin-left:0;}
+  .nav-links a:hover{color:var(--orange);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:72px 0 56px;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.3fr 0.7fr;
+    gap:48px;
+    align-items:center;
+  }
+  .kicker{
+    color:var(--orange);
+    font-size:0.95rem;
+    margin:0 0 14px;
+    font-weight:600;
+  }
+  .hero h1{
+    font-size:clamp(2.2rem, 5vw, 3.4rem);
+    margin:0 0 18px;
+    line-height:1.08;
+  }
+  .hero p.lede{
+    font-size:1.12rem;
+    color:#4A433C;
+    max-width:46ch;
+    margin:0 0 28px;
+  }
+  .hero-links{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-block;
+    padding:11px 22px;
+    border-radius:2px;
+    text-decoration:none;
+    font-size:0.92rem;
+    font-weight:600;
+    transition:transform .15s, box-shadow .15s;
+  }
+  .btn-solid{
+    background:var(--orange);
+    color:#FFF9F4;
+  }
+  .btn-outline{
+    border:1.5px solid var(--ink);
+    color:var(--ink);
+  }
+  .btn:hover{transform:translateY(-2px);}
+
+  .hero-photo{
+    position:relative;
+  }
+  .hero-photo img{
+    width:100%;
+    max-width:280px;
+    aspect-ratio:1/1;
+    object-fit:cover;
+    display:block;
+    margin-left:auto;
+    border-radius:4px;
+  }
+  .hero-photo::before{
+    content:"";
+    position:absolute;
+    top:14px;
+    right:-14px;
+    width:100%;
+    max-width:280px;
+    height:100%;
+    border:1.5px solid var(--orange);
+    border-radius:4px;
+    z-index:-1;
+  }
+
+  /* ---------- SECTION LABELS ---------- */
+  .section{
+    padding:56px 0;
+    border-top:1px solid var(--hairline);
+  }
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin-bottom:32px;
+  }
+  .section-num{
+    color:var(--orange-soft);
+    font-family:'Fraunces', serif;
+    font-size:1.4rem;
+  }
+  .section h2{
+    font-size:1.6rem;
+    margin:0;
+  }
+
+  /* ---------- SUMMARY ---------- */
+  .summary p{
+    font-size:1.06rem;
+    max-width:70ch;
+    color:#3C3630;
+  }
+
+  /* ---------- SKILLS: workflow node style ---------- */
+  .skills-flow{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+  }
+  .skill-node{
+    display:grid;
+    grid-template-columns:26px 1fr;
+    gap:18px;
+    position:relative;
+    padding-bottom:30px;
+  }
+  .skill-node:last-child{padding-bottom:0;}
+  .node-rail{
+    position:relative;
+    display:flex;
+    justify-content:center;
+  }
+  .node-dot{
+    width:11px;
+    height:11px;
+    border-radius:50%;
+    background:var(--orange);
+    margin-top:6px;
+    z-index:2;
+  }
+  .node-line{
+    position:absolute;
+    top:6px;
+    bottom:-30px;
+    width:1.5px;
+    background:var(--hairline);
+  }
+  .skill-node:last-child .node-line{display:none;}
+  .skill-title{
+    font-weight:600;
+    font-size:1.0rem;
+    margin:0 0 6px;
+  }
+  .skill-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .tag{
+    font-size:0.82rem;
+    color:var(--ink);
+    background:var(--card);
+    border:1px solid var(--hairline);
+    padding:5px 11px;
+    border-radius:2px;
+  }
+
+  /* ---------- EXPERIENCE ---------- */
+  .job{
+    display:grid;
+    grid-template-columns:26px 1fr;
+    gap:18px;
+    position:relative;
+    padding-bottom:38px;
+  }
+  .job:last-child{padding-bottom:0;}
+  .job-rail{
+    position:relative;
+    display:flex;
+    justify-content:center;
+  }
+  .job-dot{
+    width:13px;
+    height:13px;
+    border-radius:50%;
+    border:2.5px solid var(--orange);
+    background:var(--cream);
+    margin-top:5px;
+    z-index:2;
+  }
+  .job-line{
+    position:absolute;
+    top:5px;
+    bottom:-38px;
+    width:1.5px;
+    background:var(--hairline);
+  }
+  .job:last-child .job-line{display:none;}
+  .job-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:6px;
+  }
+  .job-title{
+    font-size:1.05rem;
+    font-weight:600;
+  }
+  .job-co{
+    color:var(--orange);
+    font-weight:600;
+  }
+  .job-dates{
+    font-size:0.85rem;
+    color:var(--stone);
+    white-space:nowrap;
+  }
+  .job ul{
+    margin:8px 0 0;
+    padding-left:18px;
+    color:#3C3630;
+  }
+  .job li{margin-bottom:6px;font-size:0.97rem;}
+
+  /* ---------- EDUCATION / LANG ---------- */
+  .two-col{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+  }
+  .edu-title{font-weight:600;margin:0 0 4px;}
+  .edu-sub{color:var(--stone);font-size:0.92rem;margin:0;}
+  .lang-row{
+    display:flex;
+    justify-content:space-between;
+    padding:10px 0;
+    border-bottom:1px solid var(--hairline);
+    font-size:0.97rem;
+  }
+  .lang-row span:last-child{color:var(--stone);}
+
+  /* ---------- SERVICES ---------- */
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:20px;
+  }
+  .service-card{
+    background:var(--card);
+    border:1px solid var(--hairline);
+    border-radius:2px;
+    padding:24px;
+    display:flex;
+    flex-direction:column;
+    text-decoration:none;
+    color:var(--ink);
+    transition:transform .15s, border-color .15s;
+  }
+  .service-card:hover{
+    transform:translateY(-3px);
+    border-color:var(--orange);
+  }
+  .service-price{
+    color:var(--orange);
+    font-weight:600;
+    font-size:0.85rem;
+    margin:0 0 10px;
+  }
+  .service-title{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.08rem;
+    margin:0 0 10px;
+    line-height:1.3;
+  }
+  .service-desc{
+    font-size:0.9rem;
+    color:#4A433C;
+    margin:0 0 18px;
+    flex-grow:1;
+  }
+  .service-cta{
+    font-size:0.85rem;
+    font-weight:600;
+    color:var(--ink);
+  }
+  .service-cta::after{
+    content:"";
+  }
+
+  /* ---------- AUTOMATIONS ---------- */
+  .automations-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+  }
+  .automation-card h3{
+    font-family:'Fraunces', serif;
+    font-size:1.05rem;
+    font-weight:600;
+    margin:0 0 6px;
+  }
+  .automation-card .automation-desc{
+    font-size:0.88rem;
+    color:var(--stone);
+    margin:0 0 18px;
+  }
+  .mini-flow .skill-node{padding-bottom:20px;}
+  .mini-flow .skill-title{font-size:0.92rem;font-weight:500;}
+  .mini-flow .node-line{bottom:-20px;}
+
+  /* ---------- WRITING ---------- */
+  .writing-list{
+    display:flex;
+    flex-direction:column;
+  }
+  .writing-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:20px;
+    padding:18px 0;
+    border-bottom:1px solid var(--hairline);
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .writing-item:first-child{border-top:1px solid var(--hairline);}
+  .writing-item:hover .writing-title{color:var(--orange);}
+  .writing-title{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.02rem;
+    transition:color .15s;
+  }
+  .writing-meta{
+    font-size:0.82rem;
+    color:var(--stone);
+    white-space:nowrap;
+  }
+
+  /* ---------- CASE STUDIES ---------- */
+  .case-study{
+    padding:32px 0;
+    border-top:1px solid var(--hairline);
+  }
+  .case-study:first-of-type{border-top:none;padding-top:0;}
+  .case-label{
+    color:var(--orange);
+    font-weight:600;
+    font-size:0.85rem;
+    margin:0 0 6px;
+  }
+  .case-title{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.3rem;
+    margin:0 0 10px;
+  }
+  .case-desc{
+    font-size:0.98rem;
+    color:#4A433C;
+    max-width:65ch;
+    margin:0 0 20px;
+  }
+  .flow-chain{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:8px;
+    margin:0 0 20px;
+  }
+  .flow-chip{
+    background:var(--card);
+    border:1px solid var(--hairline);
+    border-radius:2px;
+    padding:8px 14px;
+    font-size:0.85rem;
+    font-weight:600;
+    color:var(--ink);
+  }
+  .flow-arrow{
+    color:var(--orange-soft);
+    font-size:0.9rem;
+  }
+  .case-stats{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:16px;
+    margin:0 0 20px;
+  }
+  .case-stat{
+    background:var(--card);
+    border:1px solid var(--hairline);
+    padding:16px;
+    text-align:center;
+    border-radius:2px;
+  }
+  .case-stat .num{
+    font-family:'Fraunces', serif;
+    font-size:1.3rem;
+    font-weight:600;
+    color:var(--orange);
+    display:block;
+  }
+  .case-stat .label{
+    font-size:0.8rem;
+    color:var(--stone);
+  }
+  .case-result{
+    background:var(--ink);
+    color:var(--cream);
+    padding:16px 20px;
+    border-radius:2px;
+    font-size:0.92rem;
+  }
+
+  /* ---------- WRITING SAMPLES ---------- */
+  .samples-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:20px;
+    margin-top:36px;
+  }
+  .sample-card{
+    background:var(--card);
+    border:1px solid var(--hairline);
+    padding:22px;
+    border-radius:2px;
+  }
+  .sample-kicker{
+    font-size:0.78rem;
+    color:var(--orange);
+    font-weight:600;
+    margin:0 0 8px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+  }
+  .sample-title{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1rem;
+    margin:0 0 10px;
+    line-height:1.35;
+  }
+  .sample-desc{
+    font-size:0.87rem;
+    color:#4A433C;
+    line-height:1.55;
+  }
+
+  /* ---------- FOOTER / CONTACT ---------- */
+  footer{
+    padding:56px 0 64px;
+    text-align:center;
+  }
+  footer h2{
+    font-size:1.8rem;
+    margin:0 0 14px;
+  }
+  footer p{
+    color:var(--stone);
+    margin:0 0 28px;
+  }
+  .foot-links{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    flex-wrap:wrap;
+    margin-bottom:36px;
+  }
+  .copyline{
+    font-size:0.82rem;
+    color:var(--stone);
+  }
+
+  @media (max-width:720px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-photo img{margin:0 auto;max-width:200px;}
+    .hero-photo::before{display:none;}
+    .two-col{grid-template-columns:1fr;}
+    .services-grid{grid-template-columns:1fr;}
+    .automations-grid{grid-template-columns:1fr;}
+    .case-stats{grid-template-columns:1fr;}
+    .samples-grid{grid-template-columns:1fr;}
+    nav{padding:16px 20px;}
+    .nav-links{gap:16px;font-size:0.85rem;}
+    .wrap{padding:0 20px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="nav-name">Zahra Munawar</div>
+    <div class="nav-links">
+      <a href="#skills">Skills</a>
+      <a href="#services">Services</a>
+      <a href="#writing">Writing</a>
+      <a href="#work">Experience</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="kicker">Digital Marketing &amp; No-Code Automation</p>
+      <h1>I build marketing systems<br>that run themselves.</h1>
+      <p class="lede">Three years turning Zapier workflows, Medium content, and affiliate campaigns into automated pipelines — so the work keeps moving after I've moved on.</p>
+      <div class="hero-links">
+        <a class="btn btn-solid" href="https://fiverr.com/s/YLRy4vR" target="_blank" rel="noopener">Hire me on Fiverr</a>
+        <a class="btn btn-outline" href="mailto:zahramunawar3@gmail.com">Email me</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="assets/zahra.png" alt="Portrait of Zahra Munawar">
+    </div>
+  </div>
+</section>
+
+<section class="section summary">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <h2>About</h2>
+    </div>
+    <p>I'm a digital marketing specialist and no-code automation builder based in Punjab, Pakistan. Over the past three years across agency and corporate teams, I've built automated Zapier workflows, written and published long-form content on Medium, driven affiliate sales through Pinterest and Amazon Associates, and used AI tools to keep marketing operations moving without manual busywork.</p>
+  </div>
+</section>
+
+<section class="section" id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2>What I work with</h2>
+    </div>
+    <div class="skills-flow">
+      <div class="skill-node">
+        <div class="node-rail"><div class="node-dot"></div><div class="node-line"></div></div>
+        <div>
+          <p class="skill-title">Digital &amp; affiliate marketing</p>
+          <div class="skill-tags">
+            <span class="tag">Amazon Affiliate Marketing</span>
+            <span class="tag">Pinterest Marketing &amp; SEO</span>
+            <span class="tag">Beacons.ai Storefronts</span>
+            <span class="tag">Campaign Strategy</span>
+            <span class="tag">Lead Generation</span>
+          </div>
+        </div>
+      </div>
+      <div class="skill-node">
+        <div class="node-rail"><div class="node-dot"></div><div class="node-line"></div></div>
+        <div>
+          <p class="skill-title">Content writing &amp; publishing</p>
+          <div class="skill-tags">
+            <span class="tag">Medium Blogging</span>
+            <span class="tag">Media Writing</span>
+            <span class="tag">Copywriting</span>
+            <span class="tag">SEO Content Optimization</span>
+            <span class="tag">Brand Storytelling</span>
+            <span class="tag">Proofreading</span>
+          </div>
+        </div>
+      </div>
+      <div class="skill-node">
+        <div class="node-rail"><div class="node-dot"></div><div class="node-line"></div></div>
+        <div>
+          <p class="skill-title">No-code &amp; AI automation</p>
+          <div class="skill-tags">
+            <span class="tag">Zapier Workflow Building</span>
+            <span class="tag">Multi-Step Zaps</span>
+            <span class="tag">Path Logic Setup</span>
+            <span class="tag">Webhooks</span>
+            <span class="tag">AI-Driven Content Workflows</span>
+          </div>
+        </div>
+      </div>
+      <div class="skill-node">
+        <div class="node-rail"><div class="node-dot"></div></div>
+        <div>
+          <p class="skill-title">Tools &amp; platforms</p>
+          <div class="skill-tags">
+            <span class="tag">Zapier</span>
+            <span class="tag">Medium</span>
+            <span class="tag">Amazon Associates</span>
+            <span class="tag">Pinterest Business</span>
+            <span class="tag">Beacons.ai</span>
+            <span class="tag">OpenAI / ChatGPT</span>
+            <span class="tag">WordPress</span>
+            <span class="tag">Google Analytics</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <h2>Services</h2>
+    </div>
+    <div class="services-grid">
+      <a class="service-card" href="https://www.fiverr.com/zahramunawar31/build-zapier-automation-workflows" target="_blank" rel="noopener">
+        <p class="service-price">From $90</p>
+        <p class="service-title">Zapier Automation Workflows</p>
+        <p class="service-desc">No-code Zaps connecting Google Forms, Sheets, Gmail, and more — with filters, delays, and AI-assisted steps.</p>
+        <span class="service-cta">View gig →</span>
+      </a>
+      <a class="service-card" href="https://www.fiverr.com/zahramunawar31/write-seo-website-content-for-your-business" target="_blank" rel="noopener">
+        <p class="service-price">From $10</p>
+        <p class="service-title">SEO Website Content</p>
+        <p class="service-desc">Homepage, About, Services, and landing page copy that's keyword-researched and built to convert.</p>
+        <span class="service-cta">View gig →</span>
+      </a>
+      <a class="service-card" href="https://www.fiverr.com/zahramunawar31/write-seo-product-descriptions-for-shopify-amazon-and-etsy" target="_blank" rel="noopener">
+        <p class="service-price">From $10</p>
+        <p class="service-title">SEO Product Descriptions</p>
+        <p class="service-desc">High-converting product copy for Shopify, Amazon, and Etsy listings — titles, bullets, and keywords included.</p>
+        <span class="service-cta">View gig →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">04</span>
+      <h2>Automation case studies</h2>
+    </div>
+    <p style="max-width:65ch;color:#4A433C;margin:0 0 8px;">Practical no-code systems I've built with Zapier and Google Workspace — discovered, built, tested, and delivered.</p>
+
+    <div class="case-study">
+      <p class="case-label">Project 01 · HR Recruitment</p>
+      <h3 class="case-title">Automated Candidate Communication Workflow</h3>
+      <p class="case-desc">A recruitment workflow that captures applications, stores responses, sends HR notifications, confirms the application, schedules reminders, and routes cases using conditional logic.</p>
+      <div class="flow-chain">
+        <span class="flow-chip">Form</span><span class="flow-arrow">→</span>
+        <span class="flow-chip">Sheets</span><span class="flow-arrow">→</span>
+        <span class="flow-chip">Zapier (Filter/Paths)</span><span class="flow-arrow">→</span>
+        <span class="flow-chip">Gmail</span>
+      </div>
+      <div class="case-stats">
+        <div class="case-stat"><span class="num">0</span><span class="label">Missed candidate notifications</span></div>
+        <div class="case-stat"><span class="num">Instant</span><span class="label">HR alerts on every application</span></div>
+        <div class="case-stat"><span class="num">Auto</span><span class="label">Candidate routing by criteria</span></div>
+      </div>
+      <div class="case-result">Result: HR no longer checks applications manually — every candidate is notified, tracked, and routed automatically.</div>
+    </div>
+
+    <div class="case-study">
+      <p class="case-label">Project 02 · Real Estate Leads</p>
+      <h3 class="case-title">Property Inquiry &amp; Follow-Up Automation</h3>
+      <p class="case-desc">A lead-management system that captures property inquiries, notifies sales, confirms the customer request, schedules a two-day follow-up, and routes high-value leads.</p>
+      <div class="flow-chain">
+        <span class="flow-chip">Form</span><span class="flow-arrow">→</span>
+        <span class="flow-chip">Sheets</span><span class="flow-arrow">→</span>
+        <span class="flow-chip">Sales Email</span><span class="flow-arrow">→</span>
+        <span class="flow-chip">Confirmation</span><span class="flow-arrow">→</span>
+        <span class="flow-chip">Delay · 2 Days</span><span class="flow-arrow">→</span>
+        <span class="flow-chip">Follow-Up</span><span class="flow-arrow">→</span>
+        <span class="flow-chip">Filter</span><span class="flow-arrow">→</span>
+        <span class="flow-chip">Premium Agent</span>
+      </div>
+      <div class="case-result">Result: No lead sits untouched — every inquiry gets a timely reply, a scheduled follow-up, and priority routing when it matters.</div>
+    </div>
+
+    <div class="case-study">
+      <p class="case-label">Project 03 · AI-Assisted Text Processing</p>
+      <h3 class="case-title">AI Automation with a Custom Prompt</h3>
+      <p class="case-desc">A practical AI workflow that takes submitted text, applies a custom instruction, and turns the result into a useful business action — feedback analysis, response summaries, text classification, and structured output.</p>
+      <div class="flow-chain">
+        <span class="flow-chip">Form / Sheet</span><span class="flow-arrow">→</span>
+        <span class="flow-chip">Custom Prompt</span><span class="flow-arrow">→</span>
+        <span class="flow-chip">AI Output</span><span class="flow-arrow">→</span>
+        <span class="flow-chip">Gmail / Sheets</span>
+      </div>
+      <div class="case-stats">
+        <div class="case-stat"><span class="num">Consistent</span><span class="label">Same quality output every time</span></div>
+        <div class="case-stat"><span class="num">Fast</span><span class="label">Processes text the moment it's submitted</span></div>
+        <div class="case-stat"><span class="num">Flexible</span><span class="label">Prompt can be tuned to any use case</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="writing">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">05</span>
+      <h2>Writing</h2>
+    </div>
+    <p style="max-width:60ch;color:#4A433C;margin:0 0 8px;">Recent pieces on Medium — content strategy, automation, and AI for everyday use.</p>
+    <div class="writing-list">
+      <a class="writing-item" href="https://medium.com/@munawarzahra9/why-great-product-descriptions-are-the-difference-between-a-click-and-a-sale-17deecfb7531" target="_blank" rel="noopener">
+        <span class="writing-title">Why Great Product Descriptions Are the Difference Between a Click and a Sale</span>
+        <span class="writing-meta">Medium · 3 min read</span>
+      </a>
+      <a class="writing-item" href="https://medium.com/@munawarzahra9/how-i-use-no-code-automation-to-save-businesses-hours-of-manual-work-5f78037a4692" target="_blank" rel="noopener">
+        <span class="writing-title">How I Use No-Code Automation to Save Businesses Hours of Manual Work</span>
+        <span class="writing-meta">Medium</span>
+      </a>
+      <a class="writing-item" href="https://medium.com/@munawarzahra9/ai-for-everyday-life-simple-ai-tools-for-beginners-b53aa35d309e" target="_blank" rel="noopener">
+        <span class="writing-title">AI For Everyday Life: Simple AI Tools For Beginners</span>
+        <span class="writing-meta">Medium</span>
+      </a>
+      <a class="writing-item" href="https://medium.com/@munawarzahra9/cybersecurity-basics-how-to-protect-yourself-online-0a1759938279" target="_blank" rel="noopener">
+        <span class="writing-title">Cybersecurity Basics: How to Protect Yourself Online</span>
+        <span class="writing-meta">Medium</span>
+      </a>
+    </div>
+
+    <div class="samples-grid">
+      <div class="sample-card">
+        <p class="sample-kicker">Skincare</p>
+        <p class="sample-title">Hydrating Vitamin C Face Serum — Lightweight Brightening Serum for Dull Skin</p>
+        <p class="sample-desc">Leads with the everyday problem (dull, dry-looking skin) and positions the product as a simple daily fix — lightweight, fast-absorbing, easy to layer into an existing routine.</p>
+      </div>
+      <div class="sample-card">
+        <p class="sample-kicker">Home &amp; Kitchen</p>
+        <p class="sample-title">Bamboo Kitchen Organizer Tray — Adjustable Drawer Divider for Utensils &amp; Cutlery</p>
+        <p class="sample-desc">Focuses on the outcome — a tidier, easier-to-use kitchen drawer — with primary and secondary keywords like "bamboo kitchen organizer" and "drawer divider" mapped in naturally.</p>
+      </div>
+      <div class="sample-card">
+        <p class="sample-kicker">Pet Accessories</p>
+        <p class="sample-title">Adjustable Reflective Dog Collar — Comfortable Nylon Pet Collar for Daily Walks</p>
+        <p class="sample-desc">Turns practical details (adjustable fit, secure buckle, reflective strip) into real benefits — comfort, safety, and ease of use — instead of a dry features list.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">06</span>
+      <h2>Experience</h2>
+    </div>
+
+    <div class="job">
+      <div class="job-rail"><div class="job-dot"></div><div class="job-line"></div></div>
+      <div>
+        <div class="job-head">
+          <span class="job-title">Digital Marketing &amp; Automation Specialist <span class="job-co">· CodeSuite</span></span>
+          <span class="job-dates">2025 – Present</span>
+        </div>
+        <ul>
+          <li>Designed and deployed custom Zapier automated workflows using conditional path logic, webhooks, and app integrations to automate lead management and client communications.</li>
+          <li>Integrated AI prompt engineering into automated marketing workflows to streamline content creation while maintaining quality standards.</li>
+          <li>Building a custom portfolio website showcasing live Zapier integrations and automated marketing systems.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-rail"><div class="job-dot"></div><div class="job-line"></div></div>
+      <div>
+        <div class="job-head">
+          <span class="job-title">Digital Content Writer &amp; Affiliate Marketing Specialist <span class="job-co">· ZED Digitals</span></span>
+          <span class="job-dates">2024 – 2025</span>
+        </div>
+        <ul>
+          <li>Managed Amazon Affiliate marketing campaigns by creating high-converting Pinterest pins and optimizing Beacons.ai link-in-bio storefronts.</li>
+          <li>Authored and published long-form articles on Medium, implementing SEO best practices to build readership and drive organic traffic.</li>
+          <li>Developed SEO-aligned articles, ad copy, and social content that increased engagement and affiliate click-through rates.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-rail"><div class="job-dot"></div></div>
+      <div>
+        <div class="job-head">
+          <span class="job-title">Digital Content Writer &amp; Marketing Associate <span class="job-co">· Tag Solutions</span></span>
+          <span class="job-dates">2023 – 2024</span>
+        </div>
+        <ul>
+          <li>Authored long-form blog posts, web copy, and media releases leveraging mass communication and journalism best practices.</li>
+          <li>Managed social media editorial calendars, monitored campaign metrics, and optimized promotional strategies for higher reach.</li>
+          <li>Coordinated cross-functional marketing efforts to streamline publishing tasks and asset management.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap two-col">
+    <div>
+      <div class="section-head">
+        <span class="section-num">07</span>
+        <h2>Education</h2>
+      </div>
+      <p class="edu-title">BA in Journalism &amp; Mass Communication</p>
+      <p class="edu-sub">Allama Iqbal Open University (AIOU) — Graduated 2023</p>
+    </div>
+    <div>
+      <div class="section-head">
+        <span class="section-num">08</span>
+        <h2>Languages</h2>
+      </div>
+      <div class="lang-row"><span>English</span><span>Professional</span></div>
+      <div class="lang-row"><span>Urdu</span><span>Native</span></div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2 class="serif">Let's automate something.</h2>
+    <p>Pirmahal, Punjab, Pakistan · +92 336 2105727</p>
+    <div class="foot-links">
+      <a class="btn btn-solid" href="mailto:zahramunawar3@gmail.com">zahramunawar3@gmail.com</a>
+      <a class="btn btn-outline" href="https://fiverr.com/s/YLRy4vR" target="_blank" rel="noopener">Fiverr Profile</a>
+      <a class="btn btn-outline" href="https://beacons.ai/zahramunawar" target="_blank" rel="noopener">Beacons.ai</a>
+    </div>
+    <p class="copyline">© 2026 Zahra Munawar</p>
+  </div>
+</footer>
+
+</body>
+</html>
